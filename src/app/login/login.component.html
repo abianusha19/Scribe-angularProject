@@ -1,0 +1,44 @@
+<div class="row background">
+    <div class="offset-sm-4 col-sm-4">
+        <div class="card text-blank border-0">
+            <div class="card-body">
+                <div class="card-title text-center">
+                    Login using your email
+                </div>
+
+                <div class="card-text">
+                    <form [formGroup]="myform" (ngSubmit)="onsubmit(myform)">
+                        <div class="form-group">
+                            <input type="text" placeholder="Email" name="email" class="form-control" [formControl]="myform.controls['email']">
+                        </div>
+                        <div class="alert alert-danger" *ngIf="myform.controls['email'].touched && !myform.controls['email'].valid">
+                            A valid Email is required
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Password" name="password" class="form-control" [formControl]="myform.controls['password']" >
+                        </div>
+                        <div class="alert alert-danger" *ngIf="myform.controls['email'].touched && !myform.controls['email'].valid">
+                            Password is required
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-block btn-warning" [disabled]="!myform.valid">Login</button>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button class="btn btn-link" routerLink="/home">Don't have an account..Create One!..</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="alert alert-success" *ngIf="message.length>0">
+            {{message}}
+        </div>
+        <div class="alert alert-danger" *ngIf="userError">
+            {{userError.message}}
+        </div>
+        
+
+    </div>
+</div>
+
+

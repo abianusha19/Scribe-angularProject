@@ -1,0 +1,71 @@
+<div class="row background">
+<div class="col-sm-6 background-left p-5 pb-5">
+    
+</div>
+<div class="col-sm-6 background-right p-5 pb-5">
+    <div class="row">
+        <div class="offset-sm-2 col-sm-8">
+            <div class="card text-blank border-0">
+                <div class="card-body">
+                    <div class="card-title text-center">
+                        <h5>Sign up for free</h5>
+                    </div>
+
+                    <div class="card-text">
+                        <form [formGroup]="myform" (onSubmit)="onsubmit(myform)">
+                            <div class="form-row">
+                                <div class="form-group col-sm-6" >
+                                    <input type="text" placeholder="FirstName" class="form-control" [formControl]="myform.controls['firstname']">
+                                </div>
+                                
+                                <div class="form-group col-sm-6">
+                                    <input type="text" placeholder="LastName" class="form-control" [formControl]="myform.controls['lastname']">
+                                </div>
+                                
+
+                            </div>
+                            <div class="alert alert-danger" *ngIf="(myform.controls['firstname'].touched || myform.controls['lastname'].touched) && (!myform.controls['firstname'].valid || !myform.controls['lastname'].valid)">
+                                First and Last Name is required
+
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="text" placeholder="Email" class="form-control" [formControl]="myform.controls['email']">
+                                <small class="form-text text-muted">We'll not share your email with anyone</small>
+                            </div>
+                            <div class="alert alert-danger" *ngIf="myform.controls['email'].touched && !myform.controls['email'].valid">
+                                Email id is required
+
+                            </div>
+                            <div class="form-group">
+                                <input type="password" placeholder="Password" class="form-control" [formControl]="myform.controls['password']">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" placeholder="Confirm Password" class="form-control" [formControl]="myform.controls['confirmpassword']">
+                            </div>
+                            <div class="alert alert-danger" *ngIf="myform.controls['password'].touched && !myform.controls['password'].valid">
+                                Password should be 8 characters long
+
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" value="Submit" class="btn btn-block btn-warning" [disabled]="!myform.valid" routerLink="/">Submit</button>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="alert alert-success" *ngIf="message.length>0">
+                {{ message}}
+
+            </div>
+            <div class="alert alert-danger" *ngIf="userError">
+                {{ userError.message}}
+
+            </div>
+        </div>
+    </div>
+</div>
+    
+
+</div>

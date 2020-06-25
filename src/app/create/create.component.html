@@ -1,0 +1,17 @@
+<div class="row mt-5 mr-5">
+    <div class="col">
+        <div class="form-group">
+            <label>Post Title</label>
+            <input type="text" class="form-control" id="title" placeholder="Post Title" name="title" [(ngModel)]="title">
+            
+
+        </div>
+        <div class="form-group">
+            <label>Post Content</label>
+            <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig" name="jsonDoc" [(ngModel)]="jsonDoc"></angular-editor>
+        </div>
+        <div class="form-group float-right">
+            <button type="button" class="btn btn-warning" (click)=submitpost()>Post</button>
+        </div>
+    </div>
+</div>
